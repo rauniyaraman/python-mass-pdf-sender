@@ -3,7 +3,7 @@
 ## Installation
 clone the Repo
 ```
-git clone https://github.com/taukirsheikh/python-mass-pdf-sender.git
+git clone https://github.com/taukirsheikh/python-mass-pdf-sender.git .
 ```
 Start a virtual environment
 ```
