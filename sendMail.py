@@ -86,11 +86,12 @@ def send_email_with_attachment(sender_email, receiver_email, password, subject, 
 
 # Main script to download PDFs and send them via email
 email_count = 0
-
+# pdf_paths = []
 for url in url_list:
     if url.strip():  # Check if URL is not empty
         try:
             pdf_path = download_pdf(url, download_dir)
+            # pdf_paths.append(pdf_path)
             send_email_with_attachment(sender_email, receiver_email, password, subject, body, pdf_path)
             email_count += 1
             print(f"Total emails sent: {email_count}")
