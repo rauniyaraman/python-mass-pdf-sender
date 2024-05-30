@@ -94,8 +94,20 @@ for url in url_list:
             send_email_with_attachment(sender_email, receiver_email, password, subject, body, pdf_path)
             email_count += 1
             print(f"Total emails sent: {email_count}")
+            # Delete the PDF file after sending
+            os.remove(pdf_path)
+            print(f"Deleted {pdf_path}")
             time.sleep(TIME_INTERVAL)  # Delay 
         except Exception as e:
             print(f"Failed to process URL {url}: {e}")
 
 print(f"Finished sending {email_count} emails.")
+
+
+# # Delete PDF files after sending all emails
+# for pdf_path in pdf_paths:
+#     try:
+#         os.remove(pdf_path)
+#         print(f"Deleted {pdf_path}")
+#     except Exception as e:
+#         print(f"Failed to delete {pdf_path}: {e}")
