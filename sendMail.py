@@ -31,8 +31,8 @@ receiver_email = RECEIVER
 password = PASSWD  # Use the App Password generated
 
 # Email content
-subject = "Test Email from Python"
-body = "This is a test email sent from Python."
+subject = "Aman - please view this delivery order. delivery order is attached. Thanks"
+body = "please view this delivery order. delivery order is attached. Thanks"
 
 # Function to download a file from a URL
 def download_pdf(url, dest_folder):
