@@ -7,7 +7,9 @@ from email.mime.base import MIMEBase
 from email import encoders
 from email.mime.text import MIMEText
 from link_list import Links
+from shuffle_body import get_shuffled_text
 from dotenv import load_dotenv
+
 
 load_dotenv()
 # constants
@@ -30,9 +32,6 @@ sender_email = SENDER
 receiver_email = RECEIVER
 password = PASSWD  # Use the App Password generated
 
-# Email content
-subject = "Test Email from Python"
-body = "This is a test email sent from Python."
 
 # Function to download a file from a URL
 def download_pdf(url, dest_folder):
@@ -92,9 +91,18 @@ for url in url_list:
         try:
             pdf_path = download_pdf(url, download_dir)
             # pdf_paths.append(pdf_path)
+
+            # Email content
+            subject = "Test Email from Python"
+            # get random body text in each mail to message
+            body = get_shuffled_text()
+            print(body)
+
+            # Send the email with the PDF attachment
             send_email_with_attachment(sender_email, receiver_email, password, subject, body, pdf_path)
             email_count += 1
             print(f"Total emails sent: {email_count}")
+
             # Delete the PDF file after sending
             os.remove(pdf_path)
             print(f"Deleted {pdf_path}")
